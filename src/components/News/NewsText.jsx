@@ -1,6 +1,6 @@
 import React from "react";
 
-function NewsText (props) {
+export default function NewsText (props) {
   return (
     <>
       <h4>{props.text}</h4>
@@ -8,4 +8,3 @@ function NewsText (props) {
   )
 }
 
-export default NewsText;

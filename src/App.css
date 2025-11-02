@@ -4,7 +4,7 @@ body {
 }
 
 .wrap{
-  background-color: darkorange;
+  background-color: rgb(255, 255, 255);
   width: 1280px;
   height: 2871px;
   margin: 0 auto;
@@ -142,16 +142,15 @@ input:focus::placeholder {
 .bodyleft{
   width: 830px;
   height: 2300px;
-  background-color: #03C75A;
+  background-color: #ffffff;
   border-radius: 10px;
-  overflow: hidden;
 }
 
 .bodyright{
   width: 420px;
   border-radius: 20px;
   height: 2300px;
-  background-color: cornflowerblue;
+  background-color: rgb(255, 255, 255);
   
 }
 
@@ -165,42 +164,9 @@ input:focus::placeholder {
   text-decoration-color: gray;
 }
 
-.newsButton{
-  border-radius: 50%;
-  border: 0.5px solid gray;
-  background-color: white;
-}
 
 
-.login-box {
-  width: 375px;
-  height: 163px;
-  padding: 20px;
-  border: 1px solid #d0d0d0;
-  border-radius: 10px;
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
 
-.login-title {
-  font-size: 13px;
-  text-align: center;
-}
-
-
-.login-btn {
-  padding: 8px;
-  height: 55px;
-  font-size: 14px;
-  background-color: #02b14a; 
-  color: white;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  margin-bottom: 20px;
-}
 
 .login-btn:hover {
   background-color: #02b14a;

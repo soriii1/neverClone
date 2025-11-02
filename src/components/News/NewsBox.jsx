@@ -1,7 +1,7 @@
 import React from "react";
 
 
-function NewsBox({ img, title, date }) {
+export default function NewsBox({ img, title, date }) {
 
   return (
     <div
@@ -67,4 +67,4 @@ function NewsBox({ img, title, date }) {
   );
 }
 
-export default NewsBox;
+

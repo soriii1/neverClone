@@ -1,7 +1,7 @@
 import React from 'react';
-import '../App.css'
+import '../../App.css'
 
-function Menu({url, img}) {
+export default function Menu({url, img}) {
   return (
     <>
       <a 
@@ -23,4 +23,3 @@ function Menu({url, img}) {
   )
 }
 
-export default Menu;

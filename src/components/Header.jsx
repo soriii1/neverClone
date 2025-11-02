@@ -1,8 +1,8 @@
 import React from 'react';
-import MenuTop from './MenuTop';
+import MenuTop from './Menu/MenuTop';
 import HeaderCenter from './HeaderCenter';
 
-function Header() {
+export default function Header() {
   return (
     <div className="header">
       <MenuTop />
@@ -11,4 +11,4 @@ function Header() {
   );
 }
 
-export default Header;
+

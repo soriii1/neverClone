@@ -1,12 +1,12 @@
 import React from 'react';
-import SearchBar from './Search';
+import Search from './Menu/Search';
 
-function HeaderCenter() {
+export default function HeaderCenter() {
   return (
     <div className="headerCenter">
-      <SearchBar />
+      <Search />
     </div>
   );
 }
 
-export default HeaderCenter;
+

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-function NewsBar() {
+export default function NewsBar() {
+  const newsHome = () => {
+    window.location.href = "https://news.naver.com/";
+  };
 
   const newsList = [
     "PNN · 피자 광장에 새로운 피자집이 개업했습니다.",
@@ -40,7 +43,7 @@ function NewsBar() {
 
         <div style = {{width:'40px', height:'30px', marginLeft:'auto', marginRight:'20px', marginTop:'5px'}}>
           <div>
-            <a href="https://news.naver.com/" style={{fontSize: '14px' }}>
+            <a onClick={newsHome} style={{fontSize: '14px', cursor:"pointer" }}>
               뉴스홈
             </a>
           </div>
@@ -59,4 +62,3 @@ function NewsBar() {
   )
 }
 
-export default NewsBar;
