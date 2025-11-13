@@ -3,43 +3,40 @@ import MainLeft from "./Left/MainLeft";
 import '../App.css';
 import MainRight from "./MainRight";
 import styled from "@emotion/styled";
-import pizza2 from "../assets/pizza5.jpeg";
+import pizza2 from "assets/pizza5.jpeg";
 
-export default function MainBody() {
+const Bottom = styled.div`
+  width: 1280px;
+  height: 430px;
+  background-color: #f4f4f4;
+  flex-direction: column;
+`;
 
-  const Bottom = styled.div`
-    width:1280px;
-    height:430px;
-    background-color:#f4f4f4;
-    flex-direction: column;
-  `;
+const Img = styled.img`
+  width: 160px;
+  height: 100px;
+  border-radius: 5px;
+`;
 
-  const Img = styled.img`
-    width:160px;
-    height:100px;
-    border-radius: 5px;
-  `;
+const Btn = styled.button`
+  width: 65px;
+  height: 20px;
+  border-radius: 5px;
+  color: white;
+  background-color: gray;
+  border: 1px solid gray;
+`;
 
-  const Btn = styled.button`
-    width:65px;
-    height:20px;
-    border-radius: 5px;
-    color:white;
-    background-color:gray;
-    border: 1px solid gray;
-  `;
-
-  const FooterContainer = styled.footer`
+const FooterContainer = styled.footer`
   border-top: 1px solid #e5e5e5;
   margin-top: 40px;
   padding: 30px 40px;
   background: #f4f4f4;
   font-size: 13px;
   color: #444;
-  
 `;
 
-  const NoticeSection = styled.div`
+const NoticeSection = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -53,7 +50,7 @@ export default function MainBody() {
   }
 `;
 
-  const MoreButton = styled.span`
+const MoreButton = styled.span`
   color: #666;
   font-size: 13px;
   cursor: pointer;
@@ -62,7 +59,7 @@ export default function MainBody() {
   }
 `;
 
-  const LinkSection = styled.div`
+const LinkSection = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -74,10 +71,11 @@ export default function MainBody() {
   }
 `;
 
-  const Links = styled.div`
+const Links = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+
   a {
     color: #555;
     text-decoration: none;
@@ -87,7 +85,7 @@ export default function MainBody() {
   }
 `;
 
-  const BottomSection = styled.div`
+const BottomSection = styled.div`
   margin-top: 25px;
   border-top: 1px solid #eee;
   padding-top: 10px;
@@ -98,58 +96,81 @@ export default function MainBody() {
   color: #777;
 `;
 
-  const PolicyLinks = styled.div`
-    a {
-      color: #777;
+const PolicyLinks = styled.div`
+  a {
+    color: #777;
     text-decoration: none;
-      &:hover {
-        text-decoration: underline;
-        }
-      }
-  `;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`;
 
-  const CorpInfo = styled.div`
-    font-weight: 500;
-  `;
+const CorpInfo = styled.div`
+  font-weight: 500;
+`;
 
+const ScrollWrapper = styled.div`
+  display: flex;
+  gap: 5px;
+  padding: 30px 0;
+  overflow-x: auto;
+`;
 
+const ScrollItem = styled.div`
+  display: flex;
+  gap: 5px;
+  min-width: 300px;
+  flex-shrink: 0;
+`;
+
+const Bodyleft = styled.div`
+  width: 830px;
+  height: 2300px;
+  background-color: #ffffff;
+  border-radius: 10px;
+`;
+
+const BodyRight =styled.div`
+  width: 420px;
+  border-radius: 20px;
+  height: 2300px;
+  background-color: rgb(255, 255, 255);
+`;
+const Box = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
+
+export default function MainBody() {
   return (
     <>
-      <div style={{ display: 'flex', justifyContent: 'space-around', }}>
-        <div className="bodyleft">
-          < MainLeft />
-        </div>
+      <Box>
+        <Bodyleft>
+          <MainLeft />
+        </Bodyleft>
 
-        <div className="bodyright">
+        <BodyRight>
           <MainRight />
-        </div>
-      </div>
+        </BodyRight>
+      </Box>
 
       <Bottom>
-
-        <div style={{ display: 'flex', gap: '5px', padding: '30px 0px', overflowX: 'auto' }}>
-          <div style={{ display: 'flex', gap: '5px', minWidth: '300px', flexShrink: 0 }}>
-            <Img src={pizza2} />
-            <div>
-              <Btn>초록피자</Btn>
-              <p><strong>버려진 박스 속 피자</strong><br />따듯하던 피자가 차갑게 버려져있습니다</p>
-            </div>
-          </div>
-          <div style={{ display: 'flex', gap: '5px', minWidth: '300px', flexShrink: 0 }}>
-            <Img src={pizza2} />
-            <div>
-              <Btn>초록피자</Btn>
-              <p><strong>버려진 박스 속 피자</strong><br />따듯하던 피자가 차갑게 버려져있습니다</p>
-            </div>
-          </div>
-          <div style={{ display: 'flex', gap: '5px', minWidth: '300px', flexShrink: 0 }}>
-            <Img src={pizza2} />
-            <div>
-              <Btn>초록피자</Btn>
-              <p><strong>버려진 박스 속 피자</strong><br />따듯하던 피자가 차갑게 버려져있습니다</p>
-            </div>
-          </div>
-        </div>
+        <ScrollWrapper>
+          {[...Array(3)].map((_, idx) => (
+            <ScrollItem key={idx}>
+              <Img src={pizza2} />
+              <div>
+                <Btn>초록피자</Btn>
+                <p>
+                  <strong>버려진 박스 속 피자</strong>
+                  <br />
+                  따듯하던 피자가 차갑게 버려져있습니다
+                </p>
+              </div>
+            </ScrollItem>
+          ))}
+        </ScrollWrapper>
 
         <FooterContainer>
           <NoticeSection>
@@ -195,17 +216,7 @@ export default function MainBody() {
             <CorpInfo>© NAVER Corp.</CorpInfo>
           </BottomSection>
         </FooterContainer>
-
-
-
-      </Bottom >
-
-
-
-
+      </Bottom>
     </>
-
-
-  )
+  );
 }
-

@@ -1,22 +1,18 @@
 import React, { useRef, useState } from "react";
 import Banner from "./Banner.jsx";
 import News from "../News/News.jsx";
-import img from "../../assets/bannerImg.png";
+import img from "assets/bannerImg.png";
 import styled from "@emotion/styled";
 import Etc from "../Etc.jsx";
-import add1 from "../../assets/add1.png";
-import micon1 from "../../assets/micon1.png";
-import micon2 from "../../assets/micon2.png";
-import micon3 from "../../assets/micon3.png";
-import micon4 from "../../assets/micon4.png";
+import add1 from "assets/add1.png";
+import micon1 from "assets/micon1.png";
+import micon2 from "assets/micon2.png";
+import micon3 from "assets/micon3.png";
+import micon4 from "assets/micon4.png";
 import Addd from "./Add.jsx";
 
 
-
-
-export default function MainLeft() {
-
-  const Box = styled.div`
+const Box = styled.div`
     width: 829px;
     height: 560px;
     background-color:rgb(255, 255, 255);
@@ -128,6 +124,37 @@ export default function MainLeft() {
     margin-left:20px;
     font-size:14px;
   `;
+  
+  const OptionBox = styled.div`
+    display: flex;
+    gap: 7px;
+    margin-left: 20px;
+  `;
+
+  const AddText =styled.p`
+    text-align: center; 
+    font-size: 14px;
+  `;
+
+  const Scroll = styled.div`
+    width: 829px;
+    height: 52px;
+    border: 0.5px solid #ddd;
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+    justify-content: center;
+  `;
+
+  const GrayBoxText = styled.p`
+    white-space: nowrap;
+    margin-left: 20px;
+      `;
+
+export default function MainLeft() {
+
+  
 
   const [count, setCount] = useState(4);
 
@@ -151,7 +178,7 @@ export default function MainLeft() {
       < Banner url={img} w="829px" h="130px" />
       < News />
       <Box>
-        <div style={{ display: 'flex', gap: '7px', marginLeft: '20px' }}>
+        <OptionBox>
           <h4 className="newsTexts">쇼핑</h4>
           <h4 className="newsTexts">/</h4>
           <h4 className="newsTexts">맨즈</h4>
@@ -159,7 +186,7 @@ export default function MainLeft() {
           <h4 className="newsTexts">추천</h4>
           <h4 className="newsTexts">/</h4>
           <h4 className="newsTexts">핫딜</h4>
-        </div>
+        </OptionBox>
         <div style={{ display: 'flex' }}>
           <Left>
             <Brands>
@@ -186,35 +213,29 @@ export default function MainLeft() {
             </Menu>
             <Add src={add1}>
             </Add>
-            <p style={{ textAlign: 'center', fontSize: '14px' }}> 주름, 지방, 다크서클까지! </p>
+            <AddText> 주름, 지방, 다크서클까지! </AddText>
           </Left>
           <Right>
-            <Addd img={micon1} text="안녕하세요 반갑습니다" />
-            <Addd img={micon1} text="안녕하세요 반갑습니다" />
-            <Addd img={micon1} text="안녕하세요 반갑습니다" />
-            <Addd img={micon1} text="안녕하세요" />
-            <Addd img={micon1} text="안녕하세요" />
-            <Addd img={micon1} text="안녕하세요 반갑습니다" />
-            <Addd img={micon1} text="안녕하세요 반갑습니다" />
-            <Addd img={micon1} text="안녕하세요 반갑습니다" />
-            <Addd img={micon1} text="안녕하세요" />
-            <Addd img={micon1} text="안녕하세요" />
+            {[...Array(10)].map((_,index)=>(
+               <Addd key={index} img={micon1} text="안녕하세요 반갑습니다" />
+            ))}
+            
 
           </Right>
         </div>
 
         <GrayBox>
-          <p style={{ whiteSpace: 'nowrap', marginLeft: '20px' }} > 오늘의 혜택 • </p>
-          <p style={{ whiteSpace: 'nowrap', }} > 단 7일! 올리브영 블랙프라이데이 <Blue>~60%</Blue> + 앱/매장 선착순 랜덤 쿠폰</p>
+          <GrayBoxText > 오늘의 혜택 • </GrayBoxText>
+          <GrayBoxText > 단 7일! 올리브영 블랙프라이데이 <Blue>~60%</Blue> + 앱/매장 선착순 랜덤 쿠폰</GrayBoxText>
         </GrayBox>
 
-        <div style={{ width: '829px', height: '52px', border: '0.5px solid #ddd', marginBottom: '0px', display: 'flex', alignItems: 'center', gap: '20px', justifyContent: 'center' }}>
+        <Scroll>
           <Btn onClick={dec}>◀</Btn>
           <p style={{ margin: 0 }}>
             <Blue>쇼핑아이템</Blue> 더보기 {count}/12
           </p>
           <Btn onClick={inc}>▶</Btn>
-        </div>
+        </Scroll>
       </Box>
 
       <Etc />

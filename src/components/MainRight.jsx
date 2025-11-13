@@ -1,212 +1,329 @@
 import React from "react";
 import LoginBox from "./LoginBox";
-import d from "../assets/d.png";
-import ggg from "../assets/ggg.jpg";
+import d from "assets/d.png";
+import ggg from "assets/ggg.jpg";
+import pizza2 from "assets/pizza5.jpeg";
+import pizza1 from "assets/pizza6.jpeg";
+import wea from "assets/weather.png";
+import snack from "assets/snack.png";
+import calendar from 'assets/calendar.png';
+import naver from 'assets/naver.png';
 import styled from "@emotion/styled";
-import pizza2 from "../assets/pizza5.jpeg";
-import pizza1 from "../assets/pizza6.jpeg";
-import wea from "../assets/weather.png";
-import snack from "../assets/snack.png";
-import calendar from '../assets/calendar.png';
-import naver from '../assets/naver.png';
 
-export default function MainRight() {
+const Container = styled.div``;
 
-  const Items = styled.div`
-    width:420px;
-    height:172px;
-    background-color: white;
-    margin-top:10px;
-    display:flex;
-    border-radius:10px;
-    border: 1px solid #ddd;
-  `;
+const Banner = styled.div`
+  background-color: white;
+  width: 420px;
+  height: 240px;
+  border-radius: 10px;
+  margin-top: 10px;
+  overflow: hidden;
+  cursor: pointer;
+`;
+const BannerImg = styled.img`
+  width: 420px;
+  height: 240px;
+  border-radius: 10px;
+`;
+const AdImg = styled.img`
+  width: 420px;
+  height: 80px;
+  margin-top: 15px;
+  border-radius: 10px;
+`;
 
-  const Text = styled.p`
-    font-size:20px;  
+const Items = styled.div`
+  width: 420px;
+  height: 172px;
+  background-color: white;
+  margin-top: 10px;
+  display: flex;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+`;
+const ItemLeft = styled.div`
+  width: 80px;
+  height: 136px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+`;
+const Text = styled.p`
+  font-size: 20px;
+`;
+const ADButton = styled.button`
+  background-color: white;
+  border: 0.5px solid gray;
+  margin-top: 5px;
+  cursor: pointer;
+`;
+const ItemImgWrapper = styled.div`
+  width: 90px;
+  height: 136px;
+  margin-left: 10px;
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+const Img = styled.img`
+  width: 90px;
+  height: 90px;
+  border-radius: 5px;
+`;
 
-  `;
-
-  const Img = styled.img`
-    width:90px;
-    height:90px;
-  `;
-
-  const Box = styled.div`
-    width:420px;
-    height:236px;
-    background-color: white;
-    margin-top:15px;
-    border-radius:10px;
-    border: 1px solid #ddd;
-  `;
-
-  const TitleBox = styled.div`
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 12px;
-    width: 100%;
-    box-sizing: border-box; 
-
-  `;
-
-  const Btn = styled.button`
-    width:75px;
-    height:26px;
-    margin-top:10px;
-    border-radius:20px;
-    background-color:white; 
-    border:1.5px solid gray;
-  `;
-
-  const Tex = styled.p`
-    color:gray;
-    font-size:15px
-    margin-left: auto;
-  `;
-
-  const WeatherBox = styled.div`
+const Box = styled.div`
+  width: 420px;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin-top: 15px;
+`;
+const TitleBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px;
+  box-sizing: border-box;
+`;
+const Btn = styled.button`
+  width: 75px;
+  height: 26px;
+  margin-top: 10px;
+  border-radius: 20px;
+  background-color: white;
+  border: 1.5px solid gray;
+  cursor: pointer;
+`;
+const Tex = styled.p`
+  color: gray;
+  font-size: 15px;
+`;
+const Divider = styled.p`
+  color: #ddd;
+  text-align: center;
+  margin: 0;
+`;
+const WeatherBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 15px 20px;
 `;
-
-  const WeatherLeft = styled.div`
+const WeatherLeft = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
 `;
-
-  const WeatherInfo = styled.div`
+const WeatherInfo = styled.div`
   display: flex;
   flex-direction: column;
   line-height: 1.2;
 `;
-
-  const WeatherTemp = styled.span`
+const WeatherTemp = styled.span`
   font-size: 22px;
   font-weight: bold;
 `;
-
-  const WeatherDesc = styled.span`
+const WeatherDesc = styled.span`
   color: gray;
   font-size: 14px;
 `;
-
-  const StockBox = styled.div`
+const StockBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 40px;
 `;
-
-  const StockItem = styled.div`
+const StockItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   line-height: 1;
-
 `;
-
-  const StockName = styled.span`
+const StockName = styled.span`
   font-size: 14px;
   color: gray;
 `;
-
-  const StockValue = styled.span`
+const StockValue = styled.span`
   font-weight: bold;
 `;
-
-  const Up = styled.span`
+const Up = styled.span`
   color: red;
 `;
-
-  const Down = styled.span`
+const Down = styled.span`
   color: blue;
 `;
 
-  const Newbox = styled.div`
-    width:420px;
-    height:240px;
-    background-color:white;
-    margin-top:15px;
-    border-radius:10px;
-    border:1px solid #d6d6d6;
-  `;
+const Newbox = styled.div`
+  width: 420px;
+  background-color: white;
+  margin-top: 15px;
+  border-radius: 10px;
+  border: 1px solid #d6d6d6;
+  padding-bottom: 10px;
+`;
+const NewboxTop = styled.div`
+  display: flex;
+  margin-left: 14px;
+  align-items: center;
+`;
+const NewboxBtn = styled.button`
+  width: 30px;
+  height: 20px;
+  background-color: white;
+  border: 0.5px solid gray;
+  margin-left: 5px;
+  cursor: pointer;
+`;
+const SnackRow = styled.div`
+  display: flex;
+  margin-left: 14px;
+  align-items: flex-start;
+`;
+const SnackImg = styled.img`
+  width: 195px;
+  height: 130px;
+  margin-left: 5px;
+  border: 1px solid gray;
+  border-radius: 10px;
+`;
+const SnackDesc = styled.p`
+  margin-left: 5px;
+  text-align: center;
+  margin-top: 50px;
+`;
+const SnackTitle = styled.p`
+  font-size: 14px;
+  margin-left: 19px;
+  color: gray;
+`;
 
-  const WidgetBoard = styled.div`
-    width:420px;
-    height:516px;
-    background-color: #f1f0f0;
-    margin-top:15px;
-    border-radius:10px;
-    border:1px solid #d6d6d6;
-  `;
+const WidgetBoard = styled.div`
+  width: 420px;
+  height: 516px;
+  background-color: #f1f0f0;
+  margin-top: 15px;
+  border-radius: 10px;
+  border: 1px solid #d6d6d6;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`;
 
-  const Calender = styled.div`
-    width:384px;
-    height:192px;
-    background-color:white;
-    margin-left:20px;
-    margin-top:10px;
-    border-radius:10px;
-    border:1px solid #d6d6d6;
+const WidgetTitle = styled.p`
+  font-size: 17px;
+  margin-left: 20px;
+  margin-top: 20px;
+  font-weight: bold;
+`;
 
-  `;
+const Calender = styled.div`
+  width: 384px;
+  height: 192px;
+  background-color: white;
+  margin-left: 20px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid #d6d6d6;
+  padding: 5px;
+`;
 
-  const Cal = styled.img`
-    width:177px;
-    height:134px;
-    margin-left:80px;
+const CalTitle = styled.p`
+  font-size: 17px;
+  font-weight: bold;
+  margin: 0 0 5px 20px;
+`;
 
- `;
+const CalDateRow = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
-  const Last = styled.div`
-    width: 420px;
-    height:80px;
-    background-color:white;
-    margin-top:15px;
-    border-radius:10px;
-    border:1px solid #d6d6d6;
- `;
+const CalDate = styled.p`
+  font-size: 40px;
+  font-weight: bold;
+  margin: 0 5px 0 20px;
+`;
+const CalDay = styled.p`
+  margin: 0;
+  font-weight: normal;
+`;
+const CalImg = styled.img`
+  width: 177px;
+  height: 134px;
+  margin-left: auto;
+  margin-right: 20px;
+`;
+const CalImageRow = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-left: 20px;
+`;
+const CalImgSmall = styled.img`
+  width: 108px;
+  height: 124px;
+  border-radius: 5px;
+`;
 
+const Last = styled.div`
+  width: 420px;
+  height: 80px;
+  background-color: white;
+  margin-top: 15px;
+  border-radius: 10px;
+  border: 1px solid #d6d6d6;
+`;
+const LastContent = styled.div`
+  width: 300px;
+  height: 64px;
+  display: flex;
+  margin-left: 20px;
+  margin-top: 20px;
+  gap: 10px;
+  align-items: center;
+`;
+const LastImg = styled.img`
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+`;
+const LastText = styled.p`
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.2;
+`;
 
+export default function MainRight() {
+ 
+
+  const itemsData = [
+    { img: pizza2, text: "고르곤졸라 피자 냐미!" },
+    { img: pizza2, text: "고르곤졸라 피자" },
+    { img: pizza2, text: "고르곤졸라 피자" },
+  ];
 
   return (
-    <>
-      <div>
-        <LoginBox />
-      </div>
-      <div style={{ backgroundColor: 'white', width: '420px', height: '240px', borderRadius: '10px', marginTop: '10px' }}>
-        <a onClick={() => window.location.href = "https://xn--zo5btno5cba414dnzcmzg.com/?utm_source=naver&utm_medium=roll&utm_campaign=naver_roll"}>
-          <img src={ggg} style={{ width: '420px', height: '240px', borderRadius: '10px' }}></img></a>
-      </div>
-      <div>
-        <img src={d} style={{ width: '420px', height: '80px', marginTop: '15px', borderRadius: '10px', textAlign: 'center' }}></img>
-      </div>
-
+    <Container>
+      <LoginBox />
+      <Banner onClick={() => window.location.href = "https://xn--zo5btno5cba414dnzcmzg.com/?utm_source=naver&utm_medium=roll&utm_campaign=naver_roll"}>
+        <BannerImg src={ggg} />
+      </Banner>
+      <AdImg src={d} />
       <Items>
-        <div style={{ width: '80px', height: '136px', marginLeft: '20px', paddingTop: '0px' }}>
-          <Text> <strong>요즘 <br></br>관심 받는<br></br> 아이템</strong> </Text>
-          <button style={{ backgroundColor: 'white', border: '0.5px solid gray', marginTop: '5px' }}>AD</button>
-        </div>
-
-        <div style={{ width: '90px', height: '136px', marginLeft: '10px', paddingTop: '15px' }}>
-          <Img src={pizza2}></Img>
-          <p>고르곤졸라 피자 냐미! </p>
-        </div>
-        <div style={{ width: '90px', height: '136px', marginLeft: '10px', paddingTop: '15px' }}>
-          <Img src={pizza2}></Img>
-          <p>고르곤졸라 피자  </p>
-        </div>
-        <div style={{ width: '90px', height: '136px', marginLeft: '10px', paddingTop: '15px' }}>
-          <Img src={pizza2}></Img>
-          <p>고르곤졸라 피자  </p>
-        </div>
+        <ItemLeft>
+          <Text><strong>요즘 <br />관심 받는<br /> 아이템</strong></Text>
+          <ADButton>AD</ADButton>
+        </ItemLeft>
+        {itemsData.map((item, index) => (
+          <ItemImgWrapper key={index}>
+            <Img src={item.img} />
+            <p>{item.text}</p>
+          </ItemImgWrapper>
+        ))}
       </Items>
-
 
       <Box>
         <TitleBox>
@@ -216,12 +333,10 @@ export default function MainRight() {
           </div>
           <Tex>부산 사상구</Tex>
         </TitleBox>
-
-        <p style={{ color: '#ddd', textAlign: 'center' }}>━━━━━━━━━━━━━━━━━━━━━━━━━━━━</p>
-
+        <Divider>━━━━━━━━━━━━━━━━━━━━━━━━━━━━</Divider>
         <WeatherBox>
           <WeatherLeft>
-            <img src={wea} alt="맑음" width="80" />
+            <Img src={wea} />
             <WeatherInfo>
               <WeatherTemp>17°</WeatherTemp>
               <WeatherDesc>맑음</WeatherDesc>
@@ -231,15 +346,12 @@ export default function MainRight() {
         </WeatherBox>
       </Box>
 
-
       <Box>
         <TitleBox>
           <p><strong>증시</strong></p>
           <Tex>11.02 15:23</Tex>
         </TitleBox>
-
-        <p style={{ color: '#ddd', textAlign: 'center' }}>━━━━━━━━━━━━━━━━━━━━━━━━━━━━</p>
-
+        <Divider>━━━━━━━━━━━━━━━━━━━━━━━━━━━━</Divider>
         <StockBox>
           <StockItem>
             <StockName>KOSPI</StockName>
@@ -260,68 +372,46 @@ export default function MainRight() {
       </Box>
 
       <Newbox>
-        <div style={{ display: 'flex', marginLeft: '14px' }}>
+        <NewboxTop>
           <p><strong>사무실 탕비실 스낵바! 간식 걱정 끝!</strong></p>
-          <button style={{ width: '30px', height: '20px', backgroundColor: 'white', border: '0.5px solid gray', marginTop: '15px', marginLeft: '5px' }}>AD</button>
-        </div>
-        <div style={{ display: 'flex', marginLeft: '14px' }}>
-          <img src={snack} style={{ width: '195px', height: '130px', marginLeft: '5px', border: '1px solid gray', borderRadius: '10px' }}></img>
-          <p style={{ marginLeft: '5px', textAlign: 'center', marginTop: '50px' }}> 부장님부터 신입사원까지 모두 좋아하는 과자세트 </p>
-        </div>
-        <p style={{ fontSize: '14px', marginLeft: '19px', color: 'gray' }}> 어쩌구 과자 가게 </p>
-
+          <NewboxBtn>AD</NewboxBtn>
+        </NewboxTop>
+        <SnackRow>
+          <SnackImg src={snack} />
+          <SnackDesc>부장님부터 신입사원까지 모두 좋아하는 과자세트</SnackDesc>
+        </SnackRow>
+        <SnackTitle>어쩌구 과자 가게</SnackTitle>
       </Newbox>
 
       <WidgetBoard>
-        <div style={{ marginLeft: '20px', marginTop: '20px' }}>
-          <p><strong>위젯보드</strong></p>
-        </div>
+        <WidgetTitle>위젯보드</WidgetTitle>
         <Calender>
-          <div>
-            <p style={{ fontSize: '17px', marginLeft: '20px' }} ><strong>캘린더</strong></p>
-          </div>
-          <div style={{ display: 'flex' }}>
-            <p style={{ fontSize: '40px', marginLeft: '20px', marginTop: '0px' }}><strong>11.2</strong></p>
-            <p style={{ marginLeft: '5px' }}> 월 </p>
-            <Cal src={calendar}></Cal>
-          </div>
+          <CalTitle>캘린더</CalTitle>
+          <CalDateRow>
+            <CalDate>11.2</CalDate>
+            <CalDay>월</CalDay>
+            <CalImg src={calendar} />
+          </CalDateRow>
         </Calender>
-
         <Calender>
-          <div style={{}}>
-            <p style={{ fontSize: '17px', marginLeft: '20px' }} ><strong> VIBE 배드타임ASMR</strong></p>
-          </div>
-          <div style={{ display: 'flex', gap: '10px', marginLeft: '20px', marginTop: '0px' }}>
-            <img src={pizza1} style={{ width: '108px', height: '124px', borderRadius: '5px', position: 'relative' }}></img>
-            <img src={pizza1} style={{ width: '108px', height: '124px', borderRadius: '5px', position: 'relative' }}></img>
-            <img src={pizza1} style={{ width: '108px', height: '124px', borderRadius: '5px', position: 'relative' }}></img>
-          </div>
+          <CalTitle>VIBE 배드타임ASMR</CalTitle>
+          <CalImageRow>
+            <CalImgSmall src={pizza1} />
+            <CalImgSmall src={pizza1} />
+            <CalImgSmall src={pizza1} />
+          </CalImageRow>
         </Calender>
-        <div style={{ width: '420', height: '65px' }}>
-          <div style={{ display: 'flex', marginLeft: '25px', marginTop: '20px', textAlign: 'center', gap: '5px' }}>
-            <img src={naver} style={{ width: '22', height: '22px' }}></img>
-            <strong>모바일 네이버 메인</strong> 열기
-          </div>
-        </div>
-
       </WidgetBoard>
 
       <Last>
-        <div style={{ width: '300px', height: '64px', display: 'flex', marginLeft: '20px', marginTop: '20px', gap: '10px' }}>
-          <img src={pizza2} style={{ width: '42px', height: '42px', borderRadius: '50%', objectFit: 'cover' }}></img>
-          <p style={{ margin: 0, fontSize: '15px', lineHeight: 1.2 }}>
+        <LastContent>
+          <LastImg src={pizza2} />
+          <LastText>
             <strong>새로운 피자가게가 열렸습니다!</strong> <br />
             그 가게의 새로운 피자를 평가하세요
-          </p>
-        </div>
+          </LastText>
+        </LastContent>
       </Last>
-
-
-
-    </>
-
-
-
-  )
+    </Container>
+  );
 }
-
